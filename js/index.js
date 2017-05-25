@@ -7,55 +7,32 @@ $(document).ready(function(){
   $('#search_box').autocomplete({
     lookup: suggestion_lang,
     onSelect: function (suggestion) {
-        //we can use suggestion.value
-      //Here we have to modify the Query based on the 
-      //Query will be https://api.github.com/search/repositories?q=Go:language:java&sort=stars&order=desc
       $("#search_result").hide();
       $(".loader").show();
       var search_val=$("#search_box").val();
       var link="https://api.github.com/search/repositories?q="+search_val+":language:"+suggestion.value+"&sort=stars&order=desc";
       doAjaxcall(link);
-      
-    }
-});
+      }});
   $("#search_box").on('keyup',function(e){
-    
-    if(e.keyCode===13){
+      if(e.keyCode===13){
       $("#search_result").hide();
       $(".loader").show();
-    console.log("Clicked");  
-      
+    console.log("Clicked");   
       var search_val=$("#search_box").val();
-      var link="https://api.github.com/search/repositories?q="+search_val+"&sort=stars&order=desc";
-      doAjaxcall(link);
-      
-      
-    }
-    
-    
-  });
+      var link="https://api.github.com/search/repositories?q="+search_val+"&sort=stars&order=desc";doAjaxcall(link);}
+    });
   $("#more").on('click',function(){
-                
-                //Show the next Five Enteries of returned JSON
-    current_item_index=current_item_index+5;
+     current_item_index=current_item_index+5;
     if(json_data!=""){
-      displayResult(json_data,current_item_index);
-    }
-    
-                
-                });
-  
-  
-});
+    displayResult(json_data,current_item_index);  } });
+  });
 function displayResult(data,current_item_index){
-  
-      $("#more").show();
-          $(".loader").hide();
-          $("#search_result").show();
+     $("#more").show();     
+     $(".loader").hide();
+     $("#search_result").show();
           search_html="";
           var item_length=data.data.items.length;
-  
-  $("#total_search").html("<p>Total Results found:<b>"+data.data.total_count+"</b></p>");
+     $("#total_search").html("<p>Total Results found:<b>"+data.data.total_count+"</b></p>");
           var items_array=data.data.items;
           for(var i=current_item_index;i<Math.min(5+current_item_index,item_length+current_item_index);i++){
           var actual_data=data.data.items[i];
@@ -64,14 +41,12 @@ function displayResult(data,current_item_index){
           var language=actual_data.language?actual_data.language:"";
           var location=actual_data.html_url?actual_data.html_url:"";
           search_html+="<div class=\"result_box\"><div class=\"row \"><div class=\"col-md-12 headline\">"+headline+"<p class=\"lang\">-"+language+"</p><a id=\"location\" href=\""+location+"\" target=\"_blank\"><i class=\"fa fa-chevron-right \"></i></a>"+"</div></div><div class=\"row\"><div class=\"col-md-12 description \">"+description+"</div></div></div>";
-            
           }
   if(item_length!==0)
           $("#search_result").html(search_html);
   else
      $("#search_result").html("Sorry ! Nothing found with the provide Query.")
-  
-}
+  }
 function doAjaxcall(link){
    $.ajax({
         url:link,
@@ -81,10 +56,7 @@ function doAjaxcall(link){
           json_data=data;
           displayResult(data,current_item_index);
         },
-        error:function(data){
-          
-        }
-        
+        error:function(data){ 
+        }      
       });
-  
 }
