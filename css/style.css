@@ -1,0 +1,95 @@
+body{
+  background-image:url('https://res.cloudinary.com/dq623lvf5/image/upload/v1472931670/school_bnldct.png');
+}
+#top_heading{
+  font-size:40px;
+  font-family: 'Baloo Tamma', cursive;
+  
+}
+.logo{
+  color:#ED1212;
+  
+  
+}
+#middle_heading{
+  font-family: 'Open Sans Condensed', sans-serif;
+  font-size:30px;
+}
+#search_box{
+  width:50%;
+  margin-left:28%;
+}
+div+div{
+  margin-top:10px;
+  
+  
+}
+.lead{
+  font-size:25px;
+}
+#search_result{
+  
+  width:70%;
+  height:100%;
+  margin-left:20%;
+  
+}
+.headline{
+  font-size:23px;
+  font-family: 'Bree Serif', serif;
+  color:#A51E5E;
+  font-weight:900;
+  padding-top:1%;
+  
+  
+}
+.lang{
+  color:#213411;
+  font-size:12px;
+  display:inline-block;
+}
+.description{
+  font-size:13px;
+  font-family: 'Bree Serif', serif;
+  color:#A54F5E;
+  padding-bottom:1%;
+}
+.loader{
+  display:none;
+}
+.result_box{
+  border:1px solid #451231;
+  border-radius:3px;
+  
+}
+#more{
+  display:none;
+  margin-left:10%;
+}
+#search_box{
+    padding: 0 15px;
+    width: 80%;
+    height: 40px;
+    border: 1px solid #CBD3DD;
+    font-size: 1.125em;
+    margin-left:6%;
+}
+.autocomplete-suggestions { border: 1px solid #999; background: #FFF; overflow: auto; }
+.autocomplete-suggestion { padding: 2px 5px; white-space: nowrap; overflow: hidden; }
+.autocomplete-selected { background: #F0F0F0; }
+.autocomplete-suggestions strong { font-weight: normal; color: #3399FF; }
+.autocomplete-group { padding: 2px 5px; }
+.autocomplete-group strong { display: block; border-bottom: 1px solid #000; }
+
+#total_search{
+  font-family: 'Open Sans Condensed', sans-serif;
+  font-size:15px;
+  margin-left:10%;
+  
+  
+}
+#location{
+  float:right;
+  padding-top:2%;
+  padding-right:2%;
+}
